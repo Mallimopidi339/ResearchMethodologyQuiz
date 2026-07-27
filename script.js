@@ -484,26 +484,19 @@ function showResult() {
     document.getElementById("remark").innerHTML = remark;
 let studentName = prompt("Enter your Name");
 
-if(studentName){
+if (studentName) {
 
-fetch("https://script.google.com/macros/s/AKfycbxTYgOvtmQtcy_rNKgRS2biLJxNr-dqlbvUqat-ubUmunBtOsZ68TFZQ82nmGqyoOIWhA/exec", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-        name: studentName,
-        score: score + "/" + quiz.length
-    })
-})
-.then(response => response.text())
-.then(data => {
+    fetch("https://script.google.com/macros/s/AKfycbxTYgOvtmQtcy_rNKgRS2biLJxNr-dqlbvUqat-ubUmunBtOsZ68TFZQ82nmGqyoOIWhA/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+            "Content-Type": "text/plain"
+        },
+        body: JSON.stringify({
+            name: studentName,
+            score: score + "/" + quiz.length
+        })
+    });
+
     alert("✅ Score Submitted Successfully!");
-})
-.catch(error => {
-    alert("❌ Failed to save score.");
-    console.log(error);
-});
-
-}
 }
