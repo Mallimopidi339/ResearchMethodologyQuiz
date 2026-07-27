@@ -500,3 +500,4 @@ if (studentName) {
 
     alert("✅ Score Submitted Successfully!");
 }
+}
